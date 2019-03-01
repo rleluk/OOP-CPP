@@ -1,6 +1,6 @@
 #include "StringWrapper.h"
 
-StringWrapper::StringWrapper(const std::string value) : _value(value) {}
+StringWrapper::StringWrapper(std::string value) : _value(value) {}
 
 void StringWrapper::print(std::ostream &output) {
     output << _value;

@@ -5,7 +5,7 @@
 class IntWrapper : public Wrapper {
     public:
     ~IntWrapper() = default;
-    IntWrapper(const int value);
+    IntWrapper(int value);
     void print(std::ostream &output);
     Wrapper *copy() const;
 

@@ -1,7 +1,10 @@
 #include "PArr.h"
 
-PArr::PArr(const int size) : _size(size) {
+PArr::PArr(int size) : _size(size) {
     _array = new Wrapper*[size];
+    for(int i = 0; i < _size; i++) {
+        _array[i] = nullptr;
+    }
 }
 
 PArr::~PArr(){
@@ -27,6 +30,7 @@ Wrapper *& PArr::operator[](int index){
 std::ostream& operator<<(std::ostream &output, const PArr &object) {
     for(int i = 0; i < object._size; i++) {
         object._array[i]->print(std::cout);
+        std::cout << " ";
     }
     return output;
 }

@@ -6,7 +6,7 @@ class PArr {
     friend std::ostream &operator<<(std::ostream &output, const PArr &object);
     
     public:
-    PArr(const int size);
+    PArr(int size);
     ~PArr();
     Wrapper *& operator[](int index);
     void operator=(const PArr &object);

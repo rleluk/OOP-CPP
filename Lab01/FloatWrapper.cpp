@@ -1,6 +1,6 @@
 #include "FloatWrapper.h"
 
-FloatWrapper::FloatWrapper(const double value) : _value(value) {}
+FloatWrapper::FloatWrapper(double value) : _value(value) {}
 
 void FloatWrapper::print(std::ostream &output) {
     output << _value;

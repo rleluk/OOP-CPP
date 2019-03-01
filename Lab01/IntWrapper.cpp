@@ -1,6 +1,6 @@
 #include "IntWrapper.h"
 
-IntWrapper::IntWrapper(const int value) : _value(value) {}
+IntWrapper::IntWrapper(int value) : _value(value) {}
 
 void IntWrapper::print(std::ostream &output) {
     output << _value;

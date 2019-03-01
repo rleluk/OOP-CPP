@@ -6,7 +6,7 @@
 class StringWrapper : public Wrapper {
     public:
     ~StringWrapper() = default;
-    StringWrapper(const std::string value);
+    StringWrapper(std::string value);
     void print(std::ostream &output);
     Wrapper *copy() const;
 
