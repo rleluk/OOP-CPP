@@ -7,7 +7,7 @@ PArr::PArr(int size) : _size(size) {
     }
 }
 
-PArr::~PArr(){
+PArr::~PArr() {
     for(int i = 0; i < _size; i++) {
         delete _array[i];
     }
@@ -23,7 +23,7 @@ void PArr::operator=(const PArr &object) {
     }
 }
 
-Wrapper *& PArr::operator[](int index){
+Wrapper *& PArr::operator[](int index) {
     return _array[index];
 }
 
