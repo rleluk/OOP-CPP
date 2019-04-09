@@ -4,15 +4,27 @@ using namespace std;
 
 /*
 *   @class TestClassA
-*   @brief prosta klasa wykorzystywana przez SmartPointer
+*   @brief Prosta klasa, przechowująca jedynie nazwę. 
 */
 class TestClassA {
     public:
-    // destruktor wypisujący tekst
+    
+    /*
+    *   @fn ~TestClassA 
+    *   @brief Destruktor wypisujący informacje o usuwanym obiekcie.
+    */
     ~TestClassA();
-    // konstruktor wypisujący tekst
+
+    /*
+    *   @fn TestClassA 
+    *   @brief Konstruktor przyjmujący nazwę, wypisujący informację o konstrukcji obiektu.
+    */
     TestClassA(std::string name);
-    // getter zmiennej _name
+
+    /*
+    *   @fn name 
+    *   @brief Getter zwracający nazwę.
+    */
     std::string name() const;
 
     private:

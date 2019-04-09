@@ -3,53 +3,60 @@
 
 /*
 *   @class SmartPointer
-*   @brief klasa reprezentująca sprytny wskaźnik
+*   @brief Klasa reprezentująca sprytny wskaźnik.
 */
 class SmartPointer {
     public:
     /*
     *   @fn ~SmartPointer
-    *   @brief  destruktor dealokujący pamięć
+    *   @brief Destruktor dekrementujący licznik referencji do danego obiektu, który jest przechowywany przez sprytny wskaźnik.
+    *           Jeżeli licznik po dekrementacji wskazuje na to, że nie ma już więcej sprytnych wskaźników, które wskazują na dany obiekt, to dealokowana jest 
+    *           pamięć przeznaczona na obiekt oraz licznik.
     */
     ~SmartPointer();
 
-    // usuwany jest domyślny konstruktor kopiujący
+    // Usuwany jest domyślny konstruktor kopiujący.
     SmartPointer(const SmartPointer&) = delete;
 
     /*
     *   @fn SmartPointer
-    *   @brief konstruktor przyjmujący jako argument inny sprytny wskaznik
+    *   @brief Konstruktor kopiujący sprytnego wskaźnika. Kopiuje wskaźnik do obiektu oraz licznik referencji, dodatkowo inkrementując ten licznik.
     */
     SmartPointer(SmartPointer &object);
 
     /*
     *   @fn SmartPointer
-    *   @brief konstruktor 
+    *   @brief Konstruktor przyjmujący obiekt, na który wskazywać ma sprytny wskaźnik. Dodatkowo alokuje pamięć dla licznika referencji i ustawia owy licznik na 1.
     */
     SmartPointer(TestClassA *pointer);
 
     /*
     *   @fn operator=
-    *   @brief pozwala na przypisanie sprytnych wskaźników
+    *   @brief Przeciążony operator, pozwalający na przypisanie do istniejącego sprytnego wskaźnika inny sprytny wskaźnik. Odpowiednio dekrementowany jest licznik referencji dla obiektu 
+    *           przechowywanego do tej pory w danym sprytnym wskaźniku (jeżeli wartość licznika jest mniejsza od 1, to dealokowana jest pamięć przeznaczona na owy obiekt i jego licznik), 
+    *           po czym skopiowany zostaje wskaźnik do obiektu i zwiększony zostaje licznik referencji tego obiektu.
     */
     void operator=(SmartPointer &object);
 
     /*
     *   @fn operator*
-    *   @brief zwraca referencję do obiektu przechowywanego pod adresem na który wskazuje wskaźnik
+    *   @brief Metoda zwracająca referencję do obiektu, który jest przechowywany w sprytnym wskaźniku.
     */
     TestClassA &operator*();
 
     /*
     *   @fn operator->
-    *   @brief zwraca wskaźnik do obiektu TestClassA
+    *   @brief Metoda zwracająca wskaźnik do obiektu, który jest przechowywany w sprytnym wskaźniku.
     */
     TestClassA *operator->();
 
     private:
     TestClassA *_pointer;
 
-    // licznik wspólny dla wszystkich sprytnych wskaźnikow, które wskazują na ten sam obiekt
+    /*
+    *   @param _count 
+    *   @brief Licznik referencji danego obiektu.
+    */
     int *_count;
 };
 
