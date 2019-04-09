@@ -2,19 +2,35 @@
 #include <iostream>
 #include <string>
 
-//abstrakcyjna klasa bazowa
+/*
+*   @class Base
+*   @brief Abstrakcyjna klasa bazowa
+*/
 class Base {
     public:
-    // konstruktor przyjmujacy nazwe
-    Base(std::string name);
     
-    // funkcja zwracajaca nazwe
+    /*
+    *   @fn Base
+    *   @brief Konstruktor przyjmujący nazwę
+    */
+    Base(std::string name);
+
+    /*
+    *   @fn getName
+    *   @brief Getter dla składowej _name
+    */
     std::string getName() const;
 
-    // wirtualna metoda - zaimplementowana w klasach pochodnych
+    /*
+    *   @fn print
+    *   @brief Metoda czysto wirtualna, wymagająca implementacji w klasach pochodnych
+    */
     virtual void print(int space) const = 0;
 
-    // wirtualny konstruktor
+    /*
+    *   @fn ~Base
+    *   @brief Domyślny destruktor wirtualny
+    */
     virtual ~Base() = default;
 
     protected:
