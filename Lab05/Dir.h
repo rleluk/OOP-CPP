@@ -6,11 +6,7 @@
 *   @class Dir
 *   @brief Klasa reprezentująca katalogi, dziedziczy po klasie bazowej Base.
 */
-class Dir : public Base {
-
-    // deklaracja przyjaźni
-    friend std::ostream& operator<<(std::ostream& output, const Dir &source);
-
+class Dir final : public Base {
     public:
 
     /*
@@ -29,13 +25,14 @@ class Dir : public Base {
     *   @fn operator+=
     *   @brief Przeładowany operator służący do dodawania nowych plików/katalogów do naszego katalogu.
     */
-    void operator+=(Base *add);
+    void operator+=(Base *object);
 
     /*
     *   @fn get
     *   @brief Metoda zwracająca zawartość katalogu, o podanej nazwie, znajdującego się w naszym katalogu.
+    *           Przeszukiwanie katalogu odbywa się rekurencyjnie ("wchodzimy" do kolejnych podkatalogów).
     */
-    Dir* get(std::string name);
+    Base* get(std::string name);
 
     /*
     *   @fn print
@@ -44,8 +41,20 @@ class Dir : public Base {
     */
     void print(int space) const;
 
-    private:
+    /*
+    *   @fn add
+    *   @brief Metoda służąca do dodawania plików/podkatalogów do naszego katalogu. 
+    */
+    void add(Base *object);
 
+    /*
+    *   @fn findDir
+    *   @brief Metoda szukająca katalog o zadanej nazwie i zwracająca do niego wskaźnik (o ile istnieje).
+    */
+    Dir *findDir(std::string name);
+
+    private:
+    
     /*
     *   @param _array
     *   @brief Tablica z zawartością katalogu.
@@ -59,8 +68,3 @@ class Dir : public Base {
     int _count = 0;
 };
 
-/*
-*   @fn operator<<
-*   @brief Przeładowany operator, pozwalający na wypisanie katalogu wraz z jego zawartością
-*/
-std::ostream& operator<<(std::ostream& output, const Dir &source);

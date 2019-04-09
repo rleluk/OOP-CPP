@@ -7,14 +7,17 @@
 *   @brief Abstrakcyjna klasa bazowa.
 */
 class Base {
-    public:
+    // Deklaracja przyjaźni.
+    friend std::ostream& operator<<(std::ostream& output, const Base &source);
     
+    public:
+
     /*
     *   @fn Base
     *   @brief Konstruktor przyjmujący nazwę.
     */
     Base(std::string name);
-
+    
     /*
     *   @fn getName
     *   @brief Getter dla składowej _name.
@@ -36,3 +39,9 @@ class Base {
     protected:
     std::string _name;
 };
+
+/*
+*   @fn operator<<
+*   @brief Funkcja służąca do wypisywania plików/katalogów i ich zawartości.
+*/
+std::ostream& operator<<(std::ostream& output, const Base &source);

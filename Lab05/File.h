@@ -6,15 +6,15 @@
 *   @class
 *   @brief Klasa reprezentująca plik, dziedziczy po klasie podstawowej Base.
 */
-class File : public Base {
+class File final: public Base {
     public:
-    
+
     /*
     *   @fn File
     *   @brief Konstruktor tworzący nowy plik o podanej nazwie.
     */
     File(std::string name);
-
+    
     /*
     *   @fn print
     *   @brief Metoda wypisująca nazwę pliku.
